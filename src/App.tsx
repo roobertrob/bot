@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Card } from './components/Card';
+import { Header } from './components/Header';
+import { Resume } from './components/Resume';
+import { Robot } from './components/Robot';
+import { ScrollButton } from './components/ScrollToTop';
+import { useGetBots } from './hooks/useGetBots';
 
 function App() {
+  const { getBots, bots } = useGetBots();
+  useEffect(() => {
+    getBots();
+  }, [getBots]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col justify-center p-5 bg-gray w-full space-y-5 min-h-screen">
+      <Header />
+      <Resume />
+      <Robot />
+      <ScrollButton />
+
+      <div className="flex flex-wrap place-content-center w-auto">
+        {bots.map((bot, index) => (
+          <Card key={index} {...bot} />
+        ))}
+      </div>
     </div>
   );
 }
-
 export default App;
