@@ -49,10 +49,10 @@ export interface RootObject {
   message: string;
 }
 export interface NewRobot {
-  title?: string;
-  mode?: number;
-  strategy_id?: number;
-  initial_capital?: number;
-  simulation?: number;
-  broker_id?: number;
+  title: string;
+  mode: number;
+  strategy_id: number;
+  initial_capital: number;
+  simulation: number;
+  broker_id: number;
 }

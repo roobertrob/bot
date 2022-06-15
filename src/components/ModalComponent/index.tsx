@@ -1,4 +1,4 @@
-import { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { RadioGroupComponent } from '../RadioGroup';
 import { usePostBot } from '../../hooks/usePostBot';
@@ -6,7 +6,14 @@ import { NewRobot, PropsTypes } from '../types';
 
 function ModalComponent({ modalOpen }: PropsTypes) {
   const [isOpen, setIsOpen] = useState(modalOpen);
-  const [data, setData] = useState<NewRobot>();
+  const [data, setData] = useState({
+    title: '',
+    mode: 0,
+    strategy_id: 1,
+    initial_capital: 0,
+    simulation: 0,
+    broker_id: 1,
+  });
   const options = [
     {
       id: 0,
@@ -25,17 +32,15 @@ function ModalComponent({ modalOpen }: PropsTypes) {
   }, [modalOpen]);
 
   function handleChangeSelected(selected: number) {
-    setData((data) => {
-      return { ...data, strategy_id: selected };
-    });
-    console.log(selected);
+    setData({ ...data, strategy_id: selected });
   }
 
-  function submitForm() {
-    postBot(data!);
+  function submitForm(e: React.SyntheticEvent) {
+    e.preventDefault();
+    postBot(data);
     setIsOpen(false);
-    console.log(data);
   }
+
   return (
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setIsOpen}>
@@ -97,9 +102,7 @@ function ModalComponent({ modalOpen }: PropsTypes) {
                       </label>
                       <input
                         onChange={(e) =>
-                          setData((data) => {
-                            return { ...data, title: e.target.value };
-                          })
+                          setData({ ...data, title: e.target.value })
                         }
                         type="text"
                         name="name"
@@ -120,12 +123,7 @@ function ModalComponent({ modalOpen }: PropsTypes) {
                         id="2"
                         placeholder="R$"
                         onChange={(e) =>
-                          setData((data) => {
-                            return {
-                              ...data,
-                              initial_capital: +e.target.value,
-                            };
-                          })
+                          setData({ ...data, initial_capital: +e.target.value })
                         }
                         className="w-full p-3.5 border border-gray2 rounded-sm placeholder:text-body3 placeholder:text-sm"
                       />
@@ -137,7 +135,7 @@ function ModalComponent({ modalOpen }: PropsTypes) {
                     </strong>
                     <RadioGroupComponent
                       options={options}
-                      onChange={handleChangeSelected}
+                      onChange={()=>handleChangeSelected}
                       selected={selected}
                     />
                   </div>
