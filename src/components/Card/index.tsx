@@ -1,5 +1,5 @@
 import { Format } from '../../utils/format';
-import { BotProps } from '../types';
+import { BotProps } from '../../types';
 
 function Card({
   title,

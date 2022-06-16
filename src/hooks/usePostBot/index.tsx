@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { NewRobot } from '../../components/types';
+import { NewRobot } from '../../types';
 import { botService } from '../../services/api';
 
 const usePostBot = () => {

@@ -1,5 +1,5 @@
 import { RadioGroup } from '@headlessui/react';
-import { RadioGroupProps } from '../types';
+import { RadioGroupProps } from '../../types';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');

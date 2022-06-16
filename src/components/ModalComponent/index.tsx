@@ -2,7 +2,7 @@ import React, { useEffect, useState, Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { RadioGroupComponent } from '../RadioGroup';
 import { usePostBot } from '../../hooks/usePostBot';
-import { PropsTypes } from '../types';
+import { PropsTypes } from '../../types';
 
 function ModalComponent({ modalOpen }: PropsTypes) {
   const [isOpen, setIsOpen] = useState(modalOpen);

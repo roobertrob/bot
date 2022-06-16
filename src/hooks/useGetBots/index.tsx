@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { BotProps } from '../../components/types';
+import { BotProps } from '../../types';
 import { botService } from '../../services/api';
 
 const useGetBots = () => {
