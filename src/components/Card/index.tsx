@@ -1,3 +1,4 @@
+import { Format } from '../../utils/format';
 import { BotProps } from '../types';
 
 function Card({
@@ -67,10 +68,10 @@ function Card({
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="text-body4">{initial_capital}</span>
+            <span className="text-body4">{Format(initial_capital)}</span>
             {last_paper && (
               <span className="text-greenLight">
-                R${last_paper.paper_value}
+                {Format(last_paper.paper_value)}
               </span>
             )}
           </div>
@@ -78,7 +79,9 @@ function Card({
         <footer className="mt-6 flex justify-between">
           <div>
             <div className="text-body3 text-xs">Saldo diário </div>
-            <div className="font-bold text-greenLight">R${daily_balance}</div>
+            <div className="font-bold text-greenLight">
+              {Format(daily_balance)}
+            </div>
           </div>
           <div>
             <div className="text-body3 text-xs">Trades no dia </div>

@@ -1,3 +1,4 @@
+import { ArrowCircleUp } from 'phosphor-react';
 import { useState } from 'react';
 
 const ScrollButton = () => {
@@ -24,9 +25,9 @@ const ScrollButton = () => {
   return visible ? (
     <button
       onClick={scrollToTop}
-      className="fixed w-9 h-9 rounded-full bottom-10 right-0.5 text-base z-50 cursor-pointer bg-greenLight m-6"
+      className="fixed rounded-full bottom-10 right-0.5 text-base z-50 cursor-pointer text-greenLight m-6"
     >
-      TOP
+      <ArrowCircleUp className='animate-bounce' size={45} />
     </button>
   ) : (
     <></>
