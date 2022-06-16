@@ -44,7 +44,7 @@ export interface BotProps {
   last_paper: LastPaper;
 }
 
-export interface RootObject {
+export interface ApiData {
   data: BotProps[];
   message: string;
 }
