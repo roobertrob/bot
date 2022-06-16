@@ -27,7 +27,7 @@ const ScrollButton = () => {
       onClick={scrollToTop}
       className="fixed rounded-full bottom-10 right-0.5 text-base z-50 cursor-pointer text-greenLight m-6"
     >
-      <ArrowCircleUp className='animate-bounce' size={45} />
+      <ArrowCircleUp className='hover:animate-bounce' size={45} />
     </button>
   ) : (
     <></>
