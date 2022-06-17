@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { NewRobot } from '../../types';
 import { botService } from '../../services/api';
 
@@ -10,4 +9,5 @@ const usePostBot = () => {
   };
   return { postBot };
 };
+
 export { usePostBot };

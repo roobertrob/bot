@@ -16,13 +16,17 @@ function Card({
   number_trades,
 }: BotProps) {
   return (
-    <div className="flex items-center w-96 h-64 bg-white py-3.5 px-5 m-4 shadow-3xl rounded-sm">
+    <div
+      data-testid="card-component"
+      className="flex items-center w-96 h-64 bg-white py-3.5 px-5 m-4 shadow-3xl rounded-sm"
+    >
       <div className="w-full">
         <header className="flex justify-between">
           <span
             className={`flex items-center text-body1 font-bold ${
               title.length > 28 ? 'text-xs' : 'text-base'
             }`}
+            data-testid="header-title"
           >
             {title}
           </span>
@@ -33,7 +37,7 @@ function Card({
               }`}
             />
             <span className="text-body3">
-              {running == 0 ? 'Parado' : 'Em execução'}
+              {running === 0 ? 'Parado' : 'Em execução'}
             </span>
           </span>
         </header>
@@ -79,7 +83,12 @@ function Card({
         <footer className="mt-6 flex justify-between">
           <div>
             <div className="text-body3 text-xs">Saldo diário </div>
-            <div className="font-bold text-greenLight">
+            <div
+              data-testid="daily-balance"
+              className={`font-bold text-${
+                daily_balance > 0 ? 'greenLight' : 'orangeWarning'
+              }`}
+            >
               {Format(daily_balance)}
             </div>
           </div>

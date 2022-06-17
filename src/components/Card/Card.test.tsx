@@ -1,6 +1,5 @@
-/* eslint-disable testing-library/render-result-naming-convention */
 import '@testing-library/jest-dom';
-import { getByTestId, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Card } from '.';
 
 const cardProps = {
@@ -37,9 +36,25 @@ const cardProps = {
 
 describe('Card component', () => {
   it('should render card', () => {
-    const componentRendered= render(
-      <Card data-testid="card-component" {...cardProps} />,
-    );
-    expect(componentRendered).toMatchSnapshot();
+    render(<Card {...cardProps} />);
+    expect(screen.getByTestId('card-component')).toMatchSnapshot();
+    expect(screen.getByTestId('card-component')).toBeVisible();
   });
+  it('should render title with text-xs class when length is greater than 28 characters', () => {
+    render(
+      <Card
+        {...cardProps}
+        title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra sit amet urna id gravida. Fusce nec justo non risus tincidunt porta."
+      />,
+    );
+    expect(screen.getByTestId('header-title')).toHaveClass('text-xs');
+  });
+  it('should render title with text-base class when length is less than 28 characters', () => {
+    render(<Card {...cardProps} />);
+    expect(screen.getByTestId('header-title')).toHaveClass('text-base');
+  });
+   it('should render daily_balance with class text-greenLight', () => {
+     render(<Card {...cardProps} />);
+     expect(screen.getByTestId('daily-balance')).toHaveClass('text-greenLight');
+   });
 });

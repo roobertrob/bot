@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb component should render Breadcrumb 1`] = `
+<div
+  class="rounded-lg bg-white h-[4.0625rem] flex items-center p-6 space-x-2"
+  data-testid="breadcrumb-component"
+>
+  <nav>
+    <ol
+      class="flex items-center"
+    >
+      <li>
+        <div
+          class="flex items-center"
+        >
+          <button
+            class="mr-4 font-bold text-body1"
+            data-testid="breadcrumb-first-item"
+            role="link"
+          >
+            <p
+              class="space-x-3 "
+            >
+              Analise Geral
+            </p>
+          </button>
+          <span
+            aria-hidden="true"
+            class="before:content-['•'] text-font-color-disabled"
+          >
+            /
+          </span>
+        </div>
+      </li>
+      <li>
+        <div
+          class="flex items-center"
+        >
+          <span
+            aria-current="page"
+            class="ml-4 text-greenLight"
+            data-testid="breadcrumb-last-item"
+          >
+            <p
+              class="space-x-3"
+            >
+              Principal
+            </p>
+          </span>
+        </div>
+      </li>
+    </ol>
+  </nav>
+</div>
+`;

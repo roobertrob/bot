@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component should render modal 1`] = `
+<div
+  aria-labelledby="headlessui-dialog-title-:r6:"
+  aria-modal="true"
+  class="relative z-10"
+  id="headlessui-dialog-:r1:"
+  role="dialog"
+>
+  <div
+    aria-hidden="true"
+    class="fixed inset-0 h-screen bg-greenLight opacity-70"
+    id="headlessui-dialog-overlay-:r2:"
+  />
+  <div
+    class="fixed inset-0 bg-opacity-75 transition-opacity"
+  />
+  <div
+    class="fixed z-10 inset-0 overflow-y-auto"
+  >
+    <div
+      class="flex items-end sm:items-center justify-center min-h-full p-2 text-center sm:p-0"
+    >
+      <div
+        class="relative md:w-[442px] md:h-[651px] bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full sm:p-6"
+        id="headlessui-dialog-panel-:r5:"
+      >
+        <div
+          class="hidden sm:block absolute top-0 right-0 pt-4 pr-4"
+        >
+          <button
+            class="bg-white rounded-md text-body-2 hover:text-body-3"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="sr-only"
+            >
+              Close
+            </span>
+            X
+          </button>
+        </div>
+        <div
+          class="sm:flex sm:items-start"
+        >
+          <div
+            class="mt-3 text-left sm:mt-0 sm:text-left "
+          >
+            <h3
+              class="text-lg leading-6 font-medium text-body1"
+              id="headlessui-dialog-title-:r6:"
+            >
+              Adicionar novo robô
+            </h3>
+            <div
+              class="mt-2 text-body2 text-3xl flex flex-col"
+            >
+              <strong>
+                Vamos criar seu robô
+              </strong>
+              <span
+                class="text-body3 text-xs"
+              >
+                Preencha as informações
+              </span>
+            </div>
+          </div>
+        </div>
+        <form
+          action=""
+          method="post"
+        >
+          <div
+            class="mt-6 mb-10 space-y-4"
+          >
+            <div
+              class="sm:flex sm:items-start sm:flex-col "
+            >
+              <label
+                class="text-sm mb-2"
+                for="name"
+              >
+                Nome do produto
+              </label>
+              <input
+                class="w-full p-3.5 border border-gray2 rounded-sm placeholder:text-body3 placeholder:text-sm"
+                id="1"
+                name="name"
+                placeholder="Nome do produto"
+                type="text"
+              />
+            </div>
+            <div
+              class="sm:flex sm:items-start sm:flex-col "
+            >
+              <label
+                class="text-sm mb-2"
+                for="value"
+              >
+                Capital inicial do robô
+              </label>
+              <input
+                class="w-full p-3.5 border border-gray2 rounded-sm placeholder:text-body3 placeholder:text-sm"
+                id="2"
+                min="0.00"
+                name="value"
+                placeholder="R$"
+                step="0.01"
+                type="number"
+              />
+            </div>
+          </div>
+          <div
+            class="flex flex-col text-white"
+          >
+            <strong
+              class="text-lg font-medium text-body1 mb-6"
+            >
+              Selecione uma das estratégias abaixo
+            </strong>
+            <div
+              id="headlessui-radiogroup-:r7:"
+              role="radiogroup"
+            >
+              <div
+                class="space-y-2"
+                role="none"
+              >
+                <div
+                  aria-checked="false"
+                  aria-labelledby="headlessui-label-:r9:"
+                  class="border-transparent  bg-white border-gray2 relative block border rounded-sm shadow-sm px-6 py-4 cursor-pointer sm:flex sm:justify-between focus:outline-none h-[66px] hover:opacity-80"
+                  id="headlessui-radiogroup-option-:r8:"
+                  role="radio"
+                  tabindex="0"
+                >
+                  <span
+                    class="flex items-center "
+                  >
+                    <span
+                      class="text-body2 text-body-2 text-sm flex flex-col"
+                    >
+                      <span
+                        class="font-medium "
+                        id="headlessui-label-:r9:"
+                      >
+                        Tangran
+                      </span>
+                    </span>
+                  </span>
+                </div>
+                <div
+                  aria-checked="false"
+                  aria-labelledby="headlessui-label-:rb:"
+                  class="border-transparent  bg-white border-gray2 relative block border rounded-sm shadow-sm px-6 py-4 cursor-pointer sm:flex sm:justify-between focus:outline-none h-[66px] hover:opacity-80"
+                  id="headlessui-radiogroup-option-:ra:"
+                  role="radio"
+                  tabindex="-1"
+                >
+                  <span
+                    class="flex items-center "
+                  >
+                    <span
+                      class="text-body2 text-body-2 text-sm flex flex-col"
+                    >
+                      <span
+                        class="font-medium "
+                        id="headlessui-label-:rb:"
+                      >
+                        Price Action
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <footer
+          class="mt-10 flex flex-row justify-between"
+        >
+          <button
+            class="w-[87px] flex justify-center items-center rounded-sm border border-gray2 px-4 py-2 bg-white text-sm text-grayButton hover:opacity-70 sm:w-auto sm:text-sm "
+            type="button"
+          >
+            Cancelar
+          </button>
+          <button
+            class="w-[87px] flex justify-center items-center rounded-sm border border-gray2 px-4 py-2 bg-greenLight text-sm text-white hover:opacity-70 sm:ml-3 sm:w-auto sm:text-sm"
+            type="submit"
+          >
+            Criar robô
+          </button>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>
+`;
