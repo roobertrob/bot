@@ -1,5 +1,6 @@
 import { Format } from '../../utils/format';
 import { BotProps } from '../../types';
+import { usePutBot } from '../../hooks/usePutBot';
 
 function Card({
   title,
@@ -7,14 +8,16 @@ function Card({
   id,
   simulation,
   last_paper,
-  movimentations,
   strategy,
-  stock_codes,
   mode,
   initial_capital,
   daily_balance,
   number_trades,
 }: BotProps) {
+  const { putBot } = usePutBot();
+  function handleChangeExecution(robotId: number, running: number) {
+    running === 0 ? putBot(robotId, 'start') : putBot(robotId, 'stop');
+  }
   return (
     <div
       data-testid="card-component"
@@ -30,7 +33,10 @@ function Card({
           >
             {title}
           </span>
-          <span className="flex items-center space-x-1">
+          <button
+            className="flex items-center space-x-1"
+            onClick={() => handleChangeExecution(id, running)}
+          >
             <span
               className={`rounded-full w-2 h-2 ${
                 running === 0 ? 'bg-orangeWarning' : 'bg-greenLight'
@@ -39,7 +45,7 @@ function Card({
             <span className="text-body3">
               {running === 0 ? 'Parado' : 'Em execução'}
             </span>
-          </span>
+          </button>
         </header>
         <p className="text-body4">#{id}</p>
         <div className="text-body4 text-xs flex flex-row space-x-1 mt-[5px]">

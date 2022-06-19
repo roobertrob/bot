@@ -4,14 +4,15 @@ import { Breadcrumb } from './components/Breadcrumb';
 import { Resume } from './components/Resume';
 import { Robot } from './components/Robot';
 import { ScrollButton } from './components/ScrollToTop';
-import { useGetBots } from './hooks/useGetBots';
-import { usePostBot } from './hooks/usePostBot';
+import { useBots } from './stores/useBots';
 
 function App() {
-  const { getBots, bots } = useGetBots();
+  const { bots, fetch } = useBots((state) => state);
+
   useEffect(() => {
-    getBots();
-  }, [getBots]);
+    fetch();
+  }, [bots,fetch]);
+
   return (
     <div className="flex flex-col justify-center p-5 bg-gray w-full space-y-5 min-h-screen">
       <Breadcrumb

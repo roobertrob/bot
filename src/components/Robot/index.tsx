@@ -7,11 +7,11 @@ function Robot() {
     <>
       <button
         type="button"
-        className="rounded w-full bg-white flex flex-row items-center p-6"
+        className="rounded w-full bg-white flex flex-row items-center p-6 hover:animate-pulse"
         onClick={() => setModalOpen(!modalOpen)}
       >
-        <div className="border border-gray2 w-20 h-20 rounded flex items-center justify-center">
-          icone
+        <div className="border border-gray2 w-20 h-20 rounded flex items-center justify-center ">
+          <img src="new_bot.svg" alt="New bot" />
         </div>
         <div className="flex flex-col ml-6 items-start">
           <strong>Adicionar novo robô</strong>

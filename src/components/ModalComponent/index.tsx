@@ -3,9 +3,11 @@ import { Dialog, Transition } from '@headlessui/react';
 import { RadioGroupComponent } from '../RadioGroup';
 import { usePostBot } from '../../hooks/usePostBot';
 import { PropsTypes } from '../../types';
+import { useBots } from '../../stores/useBots';
 
 function ModalComponent({ modalOpen }: PropsTypes) {
   const [isOpen, setIsOpen] = useState(modalOpen);
+  const fetch = useBots((state) => state.fetch);
   const [data, setData] = useState({
     title: '',
     mode: 0,
@@ -39,6 +41,7 @@ function ModalComponent({ modalOpen }: PropsTypes) {
     e.preventDefault();
     postBot(data);
     setIsOpen(false);
+    fetch();
   }
 
   return (
@@ -135,7 +138,7 @@ function ModalComponent({ modalOpen }: PropsTypes) {
                     </strong>
                     <RadioGroupComponent
                       options={options}
-                      onChange={()=>handleChangeSelected}
+                      onChange={() => handleChangeSelected}
                       selected={selected}
                     />
                   </div>

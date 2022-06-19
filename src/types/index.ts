@@ -15,7 +15,7 @@ interface Movimentation {
   value: number;
 }
 
-interface LastPaper {
+ interface LastPaper {
   robot_id: number;
   paper: string;
   position: number;
@@ -33,14 +33,14 @@ export interface BotProps {
   updated_at: string;
   mode: number;
   simulation: number;
-  stock_codes: string;
+  stock_codes?: string;
   strategy: string;
   initial_capital: number;
   number_trades: number;
   daily_balance: number;
   type: string;
   created_at: string;
-  movimentations: Movimentation[];
+  movimentations?: Movimentation[];
   last_paper: LastPaper;
 }
 
