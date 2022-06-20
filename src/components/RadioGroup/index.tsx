@@ -7,7 +7,11 @@ function classNames(...classes: string[]) {
 
 function RadioGroupComponent({ options, selected, onChange }: RadioGroupProps) {
   return (
-    <RadioGroup value={selected} onChange={onChange}>
+    <RadioGroup
+      value={selected}
+      onChange={() => onChange}
+      data-testid="radio-group-component"
+    >
       <div className="space-y-2">
         {options.map((option) => (
           <RadioGroup.Option
@@ -33,7 +37,7 @@ function RadioGroupComponent({ options, selected, onChange }: RadioGroupProps) {
                       'text-sm flex flex-col',
                     )}
                   >
-                    <RadioGroup.Label as="span" className="font-medium ">
+                    <RadioGroup.Label as="span" className="font-medium">
                       {option.name}
                     </RadioGroup.Label>
                   </span>

@@ -17,7 +17,7 @@ exports[`Card component should render card 1`] = `
       >
         doggie
       </span>
-      <span
+      <button
         class="flex items-center space-x-1"
       >
         <span
@@ -28,7 +28,7 @@ exports[`Card component should render card 1`] = `
         >
           Parado
         </span>
-      </span>
+      </button>
     </header>
     <p
       class="text-body4"

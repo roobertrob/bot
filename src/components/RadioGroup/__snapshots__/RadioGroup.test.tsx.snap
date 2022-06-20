@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio Group component should render Radio Group 1`] = `
+<div
+  data-testid="radio-group-component"
+  id="headlessui-radiogroup-:r0:"
+  role="radiogroup"
+>
+  <div
+    class="space-y-2"
+    role="none"
+  >
+    <div
+      aria-checked="false"
+      aria-labelledby="headlessui-label-:r2:"
+      class="border-transparent  bg-white border-gray2 relative block border rounded-sm shadow-sm px-6 py-4 cursor-pointer sm:flex sm:justify-between focus:outline-none h-[66px] hover:opacity-80"
+      id="headlessui-radiogroup-option-:r1:"
+      role="radio"
+      tabindex="0"
+    >
+      <span
+        class="flex items-center "
+      >
+        <span
+          class="text-body2 text-body-2 text-sm flex flex-col"
+        >
+          <span
+            class="font-medium"
+            id="headlessui-label-:r2:"
+          >
+            Tangran
+          </span>
+        </span>
+      </span>
+    </div>
+    <div
+      aria-checked="false"
+      aria-labelledby="headlessui-label-:r4:"
+      class="border-transparent  bg-white border-gray2 relative block border rounded-sm shadow-sm px-6 py-4 cursor-pointer sm:flex sm:justify-between focus:outline-none h-[66px] hover:opacity-80"
+      id="headlessui-radiogroup-option-:r3:"
+      role="radio"
+      tabindex="-1"
+    >
+      <span
+        class="flex items-center "
+      >
+        <span
+          class="text-body2 text-body-2 text-sm flex flex-col"
+        >
+          <span
+            class="font-medium"
+            id="headlessui-label-:r4:"
+          >
+            Price Action
+          </span>
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;

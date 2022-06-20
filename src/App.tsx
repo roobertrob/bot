@@ -2,13 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Card } from './components/Card';
 import { Breadcrumb } from './components/Breadcrumb';
 import { Resume } from './components/Resume';
-import { Robot } from './components/Robot';
+import { NewRobot } from './components/NewRobot';
 import { ScrollButton } from './components/ScrollToTop';
 import { useBots } from './stores/useBots';
 import { Spinner } from './components/Spinner';
+import { ModalComponent } from './components/ModalComponent';
+import { useAvailableBots } from './stores/useAvailableBots';
 
 function App() {
   const { bots, fetch, loading } = useBots((state) => state);
+  const [modalOpen, setModalOpen] = useState(false);
+  const availableBots = useAvailableBots((state) => state.availableBots);
 
   useEffect(() => {
     fetch();
@@ -29,8 +33,13 @@ function App() {
         ]}
       />
       <Resume />
-      <Robot />
+      <NewRobot
+        actionTitle="Adicionar novo robô"
+        botsAvailable={availableBots}
+        onClick={() => setModalOpen(!modalOpen)}
+      />
       <ScrollButton />
+      <ModalComponent modalOpen={modalOpen} />
 
       {loading ? (
         <Spinner />

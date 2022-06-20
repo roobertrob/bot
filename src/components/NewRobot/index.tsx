@@ -1,28 +1,26 @@
-import { useState } from 'react';
-import { ModalComponent } from '../ModalComponent';
+import { NewRobotProps } from '../../types';
 
-function Robot() {
-  const [modalOpen, setModalOpen] = useState(false);
+function NewRobot({ actionTitle, botsAvailable, onClick }: NewRobotProps) {
   return (
     <>
       <button
         type="button"
         className="rounded w-full bg-white flex flex-row items-center p-6 hover:animate-pulse"
-        onClick={() => setModalOpen(!modalOpen)}
+        onClick={onClick}
       >
         <div className="border border-gray2 w-20 h-20 rounded flex items-center justify-center ">
           <img src="new_bot.svg" alt="New bot" />
         </div>
         <div className="flex flex-col ml-6 items-center md:items-start">
-          <strong>Adicionar novo robô</strong>
+          <strong>{actionTitle}</strong>
           <span className="text-body4">
-            Você possui <strong className="text-greenLight">02 robôs</strong>{' '}
+            Você possui{' '}
+            <strong className="text-greenLight">{botsAvailable} robôs</strong>{' '}
             disponíveis
           </span>
         </div>
       </button>
-      <ModalComponent modalOpen={modalOpen} />
     </>
   );
 }
-export { Robot };
+export { NewRobot };

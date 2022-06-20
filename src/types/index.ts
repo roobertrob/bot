@@ -56,3 +56,9 @@ export interface NewRobot {
   simulation: number;
   broker_id: number;
 }
+
+export type NewRobotProps = {
+  actionTitle: string;
+  botsAvailable: number;
+  onClick: () => void;
+};

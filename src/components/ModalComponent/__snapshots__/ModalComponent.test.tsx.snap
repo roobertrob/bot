@@ -121,6 +121,7 @@ exports[`Card component should render modal 1`] = `
               Selecione uma das estratégias abaixo
             </strong>
             <div
+              data-testid="radio-group-component"
               id="headlessui-radiogroup-:r7:"
               role="radiogroup"
             >
@@ -143,7 +144,7 @@ exports[`Card component should render modal 1`] = `
                       class="text-body2 text-body-2 text-sm flex flex-col"
                     >
                       <span
-                        class="font-medium "
+                        class="font-medium"
                         id="headlessui-label-:r9:"
                       >
                         Tangran
@@ -166,7 +167,7 @@ exports[`Card component should render modal 1`] = `
                       class="text-body2 text-body-2 text-sm flex flex-col"
                     >
                       <span
-                        class="font-medium "
+                        class="font-medium"
                         id="headlessui-label-:rb:"
                       >
                         Price Action

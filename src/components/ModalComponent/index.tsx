@@ -4,10 +4,14 @@ import { RadioGroupComponent } from '../RadioGroup';
 import { usePostBot } from '../../hooks/usePostBot';
 import { PropsTypes } from '../../types';
 import { useBots } from '../../stores/useBots';
+import { useAvailableBots } from '../../stores/useAvailableBots';
 
 function ModalComponent({ modalOpen }: PropsTypes) {
   const [isOpen, setIsOpen] = useState(modalOpen);
-  const {fetch} = useBots((state) => state);
+  const { fetch } = useBots((state) => state);
+  const { decreaseAvailableBots, availableBots } = useAvailableBots(
+    (state) => state,
+  );
   const [data, setData] = useState({
     title: '',
     mode: 0,
@@ -37,11 +41,19 @@ function ModalComponent({ modalOpen }: PropsTypes) {
     setData({ ...data, strategy_id: selected });
   }
 
-  function submitForm(e: React.SyntheticEvent) {
+  async function submitForm(e: React.SyntheticEvent) {
     e.preventDefault();
     postBot(data);
     setIsOpen(false);
-    fetch();   
+    try {
+      fetch();
+    } catch (err) {
+      console.log(err);
+    } finally {
+      if (availableBots > 0) {
+        decreaseAvailableBots();
+      }
+    }
   }
 
   return (
