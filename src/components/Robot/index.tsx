@@ -13,7 +13,7 @@ function Robot() {
         <div className="border border-gray2 w-20 h-20 rounded flex items-center justify-center ">
           <img src="new_bot.svg" alt="New bot" />
         </div>
-        <div className="flex flex-col ml-6 items-start">
+        <div className="flex flex-col ml-6 items-center ">
           <strong>Adicionar novo robô</strong>
           <span className="text-body4">
             Você possui <strong className="text-greenLight">02 robôs</strong>{' '}

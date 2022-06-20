@@ -5,7 +5,6 @@ import { botService } from '../services/api';
 import { BotProps } from '../types';
 interface Store {
   loading: boolean;
-  setLoading: (isLoading: boolean) => void;
   bots: BotProps[];
   fetch: () => void;
 }
@@ -13,12 +12,11 @@ interface Store {
 const useBots = create(
   devtools<Store>((set) => ({
     loading: false,
-    setLoading: (isLoading) =>
-     { isLoading && set(() => ({ loading: !isLoading }))},
     bots: [],
     fetch: async () => {
+      set({  loading: true });
       const { data } = await botService.getAll();
-      set({ bots: data.data });
+      set({ bots: data.data, loading: false });
     },
   })),
 );
