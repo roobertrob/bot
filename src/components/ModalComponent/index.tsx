@@ -7,7 +7,7 @@ import { useBots } from '../../stores/useBots';
 
 function ModalComponent({ modalOpen }: PropsTypes) {
   const [isOpen, setIsOpen] = useState(modalOpen);
-  const fetch = useBots((state) => state.fetch);
+  const {fetch} = useBots((state) => state);
   const [data, setData] = useState({
     title: '',
     mode: 0,
