@@ -8,10 +8,6 @@ import { useAvailableBots } from '../../stores/useAvailableBots';
 
 function ModalComponent({ modalOpen }: PropsTypes) {
   const [isOpen, setIsOpen] = useState(modalOpen);
-  const { fetch } = useBots((state) => state);
-  const { decreaseAvailableBots, availableBots } = useAvailableBots(
-    (state) => state,
-  );
   const [data, setData] = useState({
     title: '',
     mode: 0,
@@ -45,15 +41,6 @@ function ModalComponent({ modalOpen }: PropsTypes) {
     e.preventDefault();
     postBot(data);
     setIsOpen(false);
-    try {
-      fetch();
-    } catch (err) {
-      console.log(err);
-    } finally {
-      if (availableBots > 0) {
-        decreaseAvailableBots();
-      }
-    }
   }
 
   return (

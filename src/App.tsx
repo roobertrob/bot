@@ -12,11 +12,13 @@ import { useAvailableBots } from './stores/useAvailableBots';
 function App() {
   const { bots, fetch, loading } = useBots((state) => state);
   const [modalOpen, setModalOpen] = useState(false);
-  const availableBots = useAvailableBots((state) => state.availableBots);
+  const { getAvailableBots, availableBots } = useAvailableBots(
+    (state) => state,
+  );
 
   useEffect(() => {
     fetch();
-  }, []);
+  }, [getAvailableBots, fetch, availableBots]);
 
   return (
     <div className="flex flex-col p-5 bg-gray w-full space-y-5 min-h-screen">
@@ -35,7 +37,7 @@ function App() {
       <Resume />
       <NewRobot
         actionTitle="Adicionar novo robô"
-        botsAvailable={availableBots}
+        botsAvailable={getAvailableBots()}
         onClick={() => setModalOpen(!modalOpen)}
       />
       <ScrollButton />

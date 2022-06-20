@@ -1,12 +1,19 @@
 import create from 'zustand';
+import { Store } from '../types';
 
-interface Store {
-  availableBots: number;
-  decreaseAvailableBots: () => {};
-}
-
-const useAvailableBots = create<Store>((set) => ({
-  availableBots: 30,
-  decreaseAvailableBots: async () => set((state) => ({ availableBots: state.availableBots - 1 })),
+const useAvailableBots = create<Store>((set, get) => ({
+  availableBots: 80,
+  decreaseAvailableBots: (status) => {
+    set((state) => {
+      let availableBots = state.availableBots;
+      if (status === 200 && availableBots > 1) {
+        availableBots = state.availableBots - 1;
+      }
+      return {
+        availableBots,
+      };
+    });
+  },
+  getAvailableBots: () => get().availableBots,
 }));
 export { useAvailableBots };

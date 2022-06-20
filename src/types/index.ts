@@ -15,7 +15,7 @@ interface Movimentation {
   value: number;
 }
 
- interface LastPaper {
+interface LastPaper {
   robot_id: number;
   paper: string;
   position: number;
@@ -62,3 +62,14 @@ export type NewRobotProps = {
   botsAvailable: number;
   onClick: () => void;
 };
+
+export interface Store {
+  availableBots: number;
+  decreaseAvailableBots: (status: number) => void;
+  getAvailableBots: () => number;
+}
+export interface StoreBots {
+  loading: boolean;
+  bots: BotProps[];
+  fetch: () => void;
+}
