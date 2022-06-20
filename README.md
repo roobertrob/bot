@@ -1,4 +1,4 @@
-# Getting Started 
+# Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 To run it locally, clone this project and run `yarn` to install the dependencies. Then, run `yarn start`
@@ -13,11 +13,16 @@ Launches the test runner in the interactive watch mode.
 
 ## Technologies used
 
-### React + Typescript
-### TailwindCSS
-### Headlessui/React
-### ESlint
-### Zustand
-### Phosphor-icons/react
-### React testing library and Jest
+1. React + Typescript
 
+2. TailwindCSS
+
+3. Headlessui/React
+
+4. ESlint
+
+5. Zustand
+
+6. Phosphor-icons/react
+
+7. React testing library and Jest
