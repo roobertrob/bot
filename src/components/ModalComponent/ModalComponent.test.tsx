@@ -8,7 +8,7 @@ describe('Card component', () => {
       expect(screen.getByRole('dialog')).toMatchSnapshot();
        expect(screen.getByRole('dialog')).toBeVisible();
   });
-    it('should change options', () => {
+  it('should change options', () => {
         const handleCreateRobot = jest.fn()
         
       render(<ModalComponent modalOpen />);

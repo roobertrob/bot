@@ -41,7 +41,7 @@ function ModalComponent({ modalOpen }: PropsTypes) {
     e.preventDefault();
     postBot(data);
     setIsOpen(false);
-    fetch();
+    fetch();   
   }
 
   return (
