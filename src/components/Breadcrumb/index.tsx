@@ -10,7 +10,7 @@ const Breadcrumb = ({ items, navigateTo }: BreadcrumbProps) => {
       <nav>
         <ol className="flex items-center">
           {items.map((item, index, all) => (
-            <li key={`breadcrumb-item-${index}`}>
+            <li key={item.link}>
               <div className="flex items-center">
                 {all.length === 1 ||
                 (all.length !== 1 && index === all.length - 1) ? (
@@ -27,6 +27,7 @@ const Breadcrumb = ({ items, navigateTo }: BreadcrumbProps) => {
                   <>
                     <button
                       role="link"
+                      type="button"
                       onClick={() => navigation(item.link)}
                       className={`${
                         index === 0 ? 'mr-4' : 'mx-4'
