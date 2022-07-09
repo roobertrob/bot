@@ -5,7 +5,7 @@ const useAvailableBots = create<Store>((set, get) => ({
   availableBots: 80,
   decreaseAvailableBots: (status) => {
     set((state) => {
-      let availableBots = state.availableBots;
+      let { availableBots } = state;
       if (status === 200 && availableBots > 1) {
         availableBots = state.availableBots - 1;
       }
