@@ -1,6 +1,6 @@
 import { BreadcrumbProps } from './types';
 
-function Breadcrumb({ items, navigateTo }: BreadcrumbProps) {
+const Breadcrumb = ({ items, navigateTo }: BreadcrumbProps) => {
   const navigation = (uri?: string) => navigateTo && uri && navigateTo(uri);
   return (
     <div
@@ -54,5 +54,5 @@ function Breadcrumb({ items, navigateTo }: BreadcrumbProps) {
       </nav>
     </div>
   );
-}
+};
 export { Breadcrumb };

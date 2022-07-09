@@ -1,4 +1,4 @@
-import { botService } from '../../services/api';
+import { botService } from 'services/api';
 
 const usePutBot = () => {
   const putBot = async (robotId: number, action: string) => {

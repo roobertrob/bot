@@ -1,8 +1,8 @@
-import { Format } from '../../utils/format';
-import { BotProps } from '../../types';
-import { usePutBot } from '../../hooks/usePutBot';
+import { usePutBot } from 'hooks/usePutBot';
+import { BotProps } from 'types';
+import { Format } from 'utils/format';
 
-function Card({
+const Card = ({
   title,
   running,
   id,
@@ -13,11 +13,11 @@ function Card({
   initial_capital,
   daily_balance,
   number_trades,
-}: BotProps) {
+}: BotProps) => {
   const { putBot } = usePutBot();
-  function handleChangeExecution(robotId: number, running: number) {
-    running === 0 ? putBot(robotId, 'start') : putBot(robotId, 'stop');
-  }
+  const handleChangeExecution = (robotId: number, isRunning: number) =>
+    isRunning === 0 ? putBot(robotId, 'start') : putBot(robotId, 'stop');
+
   return (
     <div
       data-testid="card-component"
@@ -34,6 +34,7 @@ function Card({
             {title}
           </span>
           <button
+            type="button"
             className="flex items-center space-x-1"
             onClick={() => handleChangeExecution(id, running)}
           >
@@ -52,8 +53,8 @@ function Card({
           <div className="border border-gray2 rounded-sm px-1.5">
             {simulation === 0 ? 'Pessimista' : 'Otimista'}
           </div>
-          <div className="border border-gray2  rounded-sm px-1.5">
-            {last_paper ? <>{last_paper.profit}</> : '-'} %
+          <div className="border border-gray2  rounded-sm px-1.5 flex flex-row">
+            {last_paper ? <div>{last_paper.profit}</div> : '-'} %
           </div>
           <div className="border border-gray2  rounded-sm px-1.5">
             {strategy}
@@ -108,5 +109,5 @@ function Card({
       </div>
     </div>
   );
-}
+};
 export { Card };

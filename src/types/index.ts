@@ -1,11 +1,11 @@
-export type PropsTypes = {
-  modalOpen: boolean;
-};
-export interface Options {
+interface Options {
   id: number;
   name: string;
 }
-export interface RadioGroupProps {
+interface PropsTypes {
+  modalOpen: boolean;
+}
+interface RadioGroupProps {
   options: Options[];
   selected: React.ComponentState;
   onChange: any;
@@ -26,7 +26,7 @@ interface LastPaper {
   id: number;
 }
 
-export interface BotProps {
+interface BotProps {
   id: number;
   title: string;
   running: number;
@@ -44,11 +44,11 @@ export interface BotProps {
   last_paper: LastPaper;
 }
 
-export interface ApiData {
+interface ApiData {
   data: BotProps[];
   message: string;
 }
-export interface NewRobot {
+interface NewRobot {
   title: string;
   mode: number;
   strategy_id: number;
@@ -57,19 +57,60 @@ export interface NewRobot {
   broker_id: number;
 }
 
-export type NewRobotProps = {
+type NewRobotProps = {
   actionTitle: string;
   botsAvailable: number;
   onClick: () => void;
 };
 
-export interface Store {
+interface Store {
   availableBots: number;
   decreaseAvailableBots: (status: number) => void;
   getAvailableBots: () => number;
 }
-export interface StoreBots {
+
+interface StoreBots {
   loading: boolean;
   bots: BotProps[];
   fetch: () => void;
 }
+
+interface StoreOverview {
+  loadingOverview: boolean;
+  overview: Overview;
+  fetchOverview: () => void;
+}
+
+interface Paper {
+  name: string;
+  trasactions: number;
+}
+
+interface Data {
+  moviment_summary: number;
+  transactions: number;
+  open_positions: number;
+  papers: Paper[];
+}
+
+interface Overview {
+  data: Data;
+}
+
+export type {
+  Options,
+  PropsTypes,
+  RadioGroupProps,
+  Movimentation,
+  LastPaper,
+  BotProps,
+  ApiData,
+  NewRobot,
+  NewRobotProps,
+  Store,
+  StoreBots,
+  Paper,
+  Data,
+  Overview,
+  StoreOverview,
+};

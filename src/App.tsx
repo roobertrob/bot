@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { Card } from './components/Card';
-import { Breadcrumb } from './components/Breadcrumb';
-import { Resume } from './components/Resume';
-import { NewRobot } from './components/NewRobot';
-import { ScrollButton } from './components/ScrollToTop';
-import { useBots } from './stores/useBots';
-import { Spinner } from './components/Spinner';
-import { ModalComponent } from './components/ModalComponent';
-import { useAvailableBots } from './stores/useAvailableBots';
+import { Breadcrumb } from 'components/Breadcrumb';
+import { Card } from 'components/Card';
+import { ModalComponent } from 'components/ModalComponent';
+import { NewRobot } from 'components/NewRobot';
+import { Overview } from 'components/Overview';
+import { ScrollButton } from 'components/ScrollToTop';
+import { Spinner } from 'components/Spinner';
+import { useState, useEffect } from 'react';
+import { useAvailableBots } from 'stores/useAvailableBots';
+import { useBots } from 'stores/useBots';
+import { useOverview } from 'stores/useOverview';
 
-function App() {
+const App = () => {
   const { bots, fetch, loading } = useBots((state) => state);
+  const { overview, fetchOverview, loadingOverview } = useOverview(
+    (state) => state,
+  );
   const [modalOpen, setModalOpen] = useState(false);
+
   const { getAvailableBots, availableBots } = useAvailableBots(
     (state) => state,
   );
@@ -19,6 +24,10 @@ function App() {
   useEffect(() => {
     fetch();
   }, [getAvailableBots, fetch, availableBots]);
+
+  useEffect(() => {
+    fetchOverview();
+  }, [overview, fetchOverview, loadingOverview]);
 
   return (
     <div className="flex flex-col p-5 bg-gray w-full space-y-5 min-h-screen">
@@ -34,7 +43,7 @@ function App() {
           },
         ]}
       />
-      <Resume />
+      <Overview {...overview.data} />
       <NewRobot
         actionTitle="Adicionar novo robô"
         botsAvailable={getAvailableBots()}
@@ -47,12 +56,15 @@ function App() {
         <Spinner />
       ) : (
         <div className="flex flex-wrap place-content-center w-auto">
-          {bots.map((bot, index) => (
-            <Card key={index} {...bot} />
-          ))}
+          {bots
+            .slice(0)
+            .reverse()
+            .map((bot) => (
+              <Card key={bot.id} {...bot} />
+            ))}
         </div>
       )}
     </div>
   );
-}
+};
 export default App;

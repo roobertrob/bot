@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { getByText, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { RadioGroupComponent } from '.';
 
@@ -17,7 +17,7 @@ const selected = {
   id: 1,
   name: 'Price Action',
 };
-const handleChangeSelected = jest.fn()
+const handleChangeSelected = jest.fn();
 
 describe('Radio Group component', () => {
   it('should render Radio Group', () => {

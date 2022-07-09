@@ -1,12 +1,10 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { RadioGroupComponent } from '../RadioGroup';
-import { usePostBot } from '../../hooks/usePostBot';
-import { PropsTypes } from '../../types';
-import { useBots } from '../../stores/useBots';
-import { useAvailableBots } from '../../stores/useAvailableBots';
+import { RadioGroupComponent } from 'components/RadioGroup';
+import { usePostBot } from 'hooks/usePostBot';
+import { PropsTypes } from 'types';
 
-function ModalComponent({ modalOpen }: PropsTypes) {
+const ModalComponent = ({ modalOpen }: PropsTypes) => {
   const [isOpen, setIsOpen] = useState(modalOpen);
   const [data, setData] = useState({
     title: '',
@@ -165,5 +163,5 @@ function ModalComponent({ modalOpen }: PropsTypes) {
       </Dialog>
     </Transition.Root>
   );
-}
+};
 export { ModalComponent };

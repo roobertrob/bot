@@ -1,7 +1,7 @@
+import { botService } from 'services/api';
+import { StoreBots } from 'types';
 import create from 'zustand';
 import { devtools } from 'zustand/middleware';
-import { botService } from '../services/api';
-import { StoreBots } from '../types';
 
 const useBots = create(
   devtools<StoreBots>((set) => ({

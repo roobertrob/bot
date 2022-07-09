@@ -1,5 +1,5 @@
+import { Store } from 'types';
 import create from 'zustand';
-import { Store } from '../types';
 
 const useAvailableBots = create<Store>((set, get) => ({
   availableBots: 80,

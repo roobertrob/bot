@@ -53,8 +53,8 @@ describe('Card component', () => {
     render(<Card {...cardProps} />);
     expect(screen.getByTestId('header-title')).toHaveClass('text-base');
   });
-   it('should render daily_balance with class text-greenLight', () => {
-     render(<Card {...cardProps} />);
-     expect(screen.getByTestId('daily-balance')).toHaveClass('text-greenLight');
-   });
+  it('should render daily_balance with class text-greenLight', () => {
+    render(<Card {...cardProps} />);
+    expect(screen.getByTestId('daily-balance')).toHaveClass('text-greenLight');
+  });
 });

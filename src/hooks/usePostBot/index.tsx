@@ -1,9 +1,9 @@
-import { NewRobot } from '../../types';
-import { botService } from '../../services/api';
-import { useAvailableBots } from '../../stores/useAvailableBots';
+import { botService } from 'services/api';
+import { useAvailableBots } from 'stores/useAvailableBots';
+import { NewRobot } from 'types';
 
 const usePostBot = () => {
-  const {decreaseAvailableBots} = useAvailableBots((state) => state);
+  const { decreaseAvailableBots } = useAvailableBots((state) => state);
 
   const postBot = async (data: NewRobot) => {
     const { status } = await botService.createRobot(data);

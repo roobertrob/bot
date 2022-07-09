@@ -25,7 +25,7 @@ describe('Breadcrumb component', () => {
     expect(screen.getByTestId('breadcrumb-component')).toMatchSnapshot();
 
     expect(screen.getByTestId('breadcrumb-component')).toBeInTheDocument();
-    
+
     expect(screen.getByTestId('breadcrumb-component')).toBeVisible();
 
     userEvent.click(screen.getByTestId('breadcrumb-first-item'));
