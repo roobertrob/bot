@@ -1,7 +1,6 @@
 import { NewRobotProps } from 'types';
 
 const NewRobot = ({ actionTitle, botsAvailable, onClick }: NewRobotProps) => (
-  <>
     <button
       type="button"
       className="rounded w-full bg-white flex flex-row items-center p-6 hover:animate-pulse"
@@ -19,6 +18,5 @@ const NewRobot = ({ actionTitle, botsAvailable, onClick }: NewRobotProps) => (
         </span>
       </div>
     </button>
-  </>
 );
 export { NewRobot };
