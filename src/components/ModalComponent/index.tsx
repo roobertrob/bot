@@ -24,15 +24,15 @@ const ModalComponent = ({ modalOpen }: PropsTypes) => {
       name: 'Price Action',
     },
   ];
-  const [selected, setSelected] = useState(options[0]);
+
   const { postBot } = usePostBot();
 
   useEffect(() => {
     setIsOpen(modalOpen);
   }, [modalOpen]);
 
-  function handleChangeSelected(selected: number) {
-    setData({ ...data, strategy_id: selected });
+  function handleChangeSelected(isSelected: number) {
+    setData({ ...data, strategy_id: isSelected });
   }
 
   async function submitForm(e: React.SyntheticEvent) {
@@ -94,10 +94,10 @@ const ModalComponent = ({ modalOpen }: PropsTypes) => {
                     </div>
                   </div>
                 </div>
-                <form action="" method="post">
+                <form name="modal-form" action="" method="post">
                   <div className="mt-6 mb-10 space-y-4">
                     <div className="sm:flex sm:items-start sm:flex-col ">
-                      <label htmlFor="name" className="text-sm mb-2">
+                      <label htmlFor="1" className="text-sm mb-2">
                         Nome do produto
                       </label>
                       <input
@@ -112,7 +112,7 @@ const ModalComponent = ({ modalOpen }: PropsTypes) => {
                       />
                     </div>
                     <div className="sm:flex sm:items-start sm:flex-col ">
-                      <label htmlFor="value" className="text-sm mb-2">
+                      <label htmlFor="2" className="text-sm mb-2">
                         Capital inicial do robô
                       </label>
                       <input
@@ -136,7 +136,7 @@ const ModalComponent = ({ modalOpen }: PropsTypes) => {
                     <RadioGroupComponent
                       options={options}
                       onChange={() => handleChangeSelected}
-                      selected={selected}
+                      selected={options[0]}
                     />
                   </div>
                 </form>
